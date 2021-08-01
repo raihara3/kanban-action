@@ -1,6 +1,6 @@
 name: github-project-connect-action
 on:
-  issues:
+  pull_request:
     types:
       - review_requested
 
