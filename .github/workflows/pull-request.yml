@@ -1,0 +1,23 @@
+name: github-project-connect-action
+on:
+  issues:
+    types:
+      - review_requested
+
+jobs:
+  connect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: When pull_request is review_requested, move the connected issue to the Reviewing column
+        if: github.event_name == 'pull_request' && github.event.action == 'review_requested'
+        uses: wktk/github-project-connect-action@v1
+        with:
+          github-token: ${{ secrets.GHPROJECT_TOKEN }}
+          column-url: https://github.com/raihara3/kanban-action/projects/1#column-15366622 # column url
+
+      - name: When pull_request is merged, move the connected issue to the Done column
+        if: github.event_name == 'pull_request' && github.event.pull_request.merged_at != ''
+        uses: wktk/github-project-connect-action@v1
+        with:
+          github-token: ${{ secrets.GHPROJECT_TOKEN }}
+          column-url: https://github.com/raihara3/kanban-action/projects/1#column-15366624 # column url
