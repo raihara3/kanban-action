@@ -2,7 +2,7 @@ name: github-project-connect-action
 on:
   pull_request:
     types:
-      - review_requested
+      - assigned
 
 jobs:
   connect:
