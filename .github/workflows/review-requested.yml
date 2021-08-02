@@ -1,8 +1,8 @@
 name: Move new issues into In review
 on:
-  pull_request:
+  pull_request_review:
     types:
-      - opened
+      - submitted
 
 jobs:
   connect:
