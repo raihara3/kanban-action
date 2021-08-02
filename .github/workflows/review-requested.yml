@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: When pull_request is review_requested, move the connected issue to the Reviewing column
-        if: github.event_name == 'pull_request' && github.event.action == 'opened' # 'review_requested'
+        if: github.event_name == 'pull_request_review' && github.event.action == 'submitted'
         uses: wktk/github-project-connect-action@v1
         with:
           github-token: ${{ secrets.GHPROJECT_TOKEN }}
