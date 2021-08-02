@@ -1,4 +1,4 @@
-name: Move new issues into Done
+name: Move new issues into In review or Done
 on:
   pull_request:
     branches:
